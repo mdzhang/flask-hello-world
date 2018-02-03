@@ -1,6 +1,6 @@
 CI_BUILD_REF ?= $(shell git rev-parse --verify HEAD)
 CONTAINER_NAME = flask-hello-world
-PYFILES = app.py
+PYFILES = flask_hw
 
 clean:
 	rm -rf .eggs/ build/ dist/ logs/ *.egg-info/
