@@ -1,3 +1,4 @@
+VERSION ?= $(git describe --abbrev=0 --tags)
 CI_BUILD_REF ?= $(shell git rev-parse --verify HEAD)
 PROJECT_NAME = flask-hello-world
 PYFILES = flask_hw
@@ -32,5 +33,5 @@ dk-run:
 		-d \
 		${CONTAINER_NAME}:latest
 
-dk-publish:
+dk-publish: dk-build
 	docker push ${CONTAINER_NAME}:${CI_BUILD_REF}
