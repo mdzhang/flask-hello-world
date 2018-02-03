@@ -1,0 +1,15 @@
+apiVersion: v0
+appVersion: "0.1"
+description: Flask hello world
+name: flask-hw
+version: 0.1.0
+keywords:
+  - flask
+home: https://github.com/mdzhang/flask-hello-world
+sources:
+  - https://github.com/mdzhang/flask-hello-world
+maintainers:
+  - name: Michelle D Zhang
+    email: zhang.michelle.d@gmail.com
+    url: http://mdzhang.com
+engine: gotpl

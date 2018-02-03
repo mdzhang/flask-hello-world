@@ -4,14 +4,16 @@
 
 replicaCount: 1
 
+# https://hub.docker.com/r/mdzhang/flask-hello-world/tags
 image:
-  repository: nginx
-  tag: stable
+  # repository: https://k8s-helm-charts-mdzhang-dev.storage.googleapis.com/
+  repository: mdzhang/flask-hello-world
+  tag: latest # TODO
   pullPolicy: IfNotPresent
 
 service:
-  type: ClusterIP
-  port: 80
+  type: NodePort
+  port: 5000
 
 ingress:
   enabled: false
