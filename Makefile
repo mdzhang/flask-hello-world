@@ -1,6 +1,8 @@
 CI_BUILD_REF ?= $(shell git rev-parse --verify HEAD)
-CONTAINER_NAME = flask-hello-world
+PROJECT_NAME = flask-hello-world
 PYFILES = flask_hw
+DOCKER_ID_USER = mdzhang
+CONTAINER_NAME = ${DOCKER_ID_USER}/${PROJECT_NAME}
 
 clean:
 	rm -rf .eggs/ build/ dist/ logs/ *.egg-info/
@@ -26,6 +28,9 @@ dk-build:
 dk-run:
 	docker run \
 		-p 5000:5000 \
-		-v $$(pwd):/opt/mdzhang/${CONTAINER_NAME} \
+		-v $$(pwd):/opt/mdzhang/${PROJECT_NAME} \
 		-d \
 		${CONTAINER_NAME}:latest
+
+dk-publish:
+	docker push ${CONTAINER_NAME}:${CI_BUILD_REF}
